@@ -21,7 +21,16 @@ namespace NUnitTestProject1
             Assert.AreEqual(expected, fare);
         }
 
-        
+        [Test]
+        public void GivenMultipleRidesShouldReturnInvoiceSummary()
+        {
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(2, 5), new Ride(0.1, 1) };
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 30);
+            Assert.AreEqual(expectedSummary, summary);
+        }
+
 
 
 
