@@ -54,5 +54,15 @@ namespace NUnitTestProject1
             Assert.AreEqual(expectedSummary, summary);
         }
 
+        [Test]
+        public void GivenDistanceAndTimeShouldReturnTotalFareForPremiumRide()
+        {
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+            double distance = 2.0;
+            int time = 5;
+            double fare = invoiceGenerator.CalculateFare(distance, time);
+            double expected = 40;
+            Assert.AreEqual(expected, fare);
+        }
     }
 }
