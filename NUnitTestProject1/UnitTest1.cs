@@ -43,7 +43,16 @@ namespace NUnitTestProject1
             Assert.AreEqual(expectedSummary.totalFare, summary.totalFare);
         }
 
-
+        [Test]
+        public void GivenAUserIDTheInvoiceServiceGetsTheListOfRidesFromTheRideRepositoryAndReturnsTheInvoice()
+        {
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(2, 5), new Ride(0.1, 1) };
+            invoiceGenerator.AddRides("FerrariKiSawari", rides);
+            InvoiceSummary summary = invoiceGenerator.GetInvoiceSummary("FerrariKiSawari");
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 30);
+            Assert.AreEqual(expectedSummary, summary);
+        }
 
     }
 }
