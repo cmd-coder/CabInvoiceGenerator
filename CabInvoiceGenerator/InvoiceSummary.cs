@@ -7,9 +7,9 @@ namespace CabInvoiceGenerator
     public class InvoiceSummary
     {
         // Variables.
-        private int numberOfRides;
-        private double totalFare;
-        private double averageFare;
+        public int numberOfRides;
+        public double totalFare;
+        public double averageFare;
 
         /// <summary>
         /// Parameter Constructor For Setting Data.
